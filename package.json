@@ -1,0 +1,36 @@
+{
+	"bin": {
+		"drizzle-dbml": "./dist/drizzleToDBML.js"
+	},
+	"dependencies": {
+		"drizzle-orm": "0.44.4"
+	},
+	"devDependencies": {
+		"@stylistic/eslint-plugin-ts": "4.2.0",
+		"@types/bun": "latest",
+		"eslint": "9.33.0",
+		"eslint-plugin-absolute": "0.1.4",
+		"eslint-plugin-import": "2.31.0",
+		"eslint-plugin-promise": "7.2.1",
+		"eslint-plugin-security": "3.0.1",
+		"prettier": "3.6.2",
+		"typescript-eslint": "8.39.0"
+	},
+	"files": [
+		"dist/**"
+	],
+	"name": "@absolutejs/drizzle-utils",
+	"peerDependencies": {
+		"typescript": "5.9.2"
+	},
+	"private": false,
+	"scripts": {
+		"build": "rm -rf dist && bun build src/drizzleToDBML.ts --outdir dist --sourcemap --target=bun && tsc --emitDeclarationOnly --project tsconfig.build.json",
+		"dev": "bun drizzle-dbml example/schema.ts -o example/example.dbml",
+		"drizzle-dbml": "bun run --watch src/drizzleToDBML.ts",
+		"format": "prettier --write \"./**/*.{js,ts,json,md,mjs}\"",
+		"lint": "eslint ./",
+		"release": "bun run lint --fix && bun run format && bun run build && bun publish"
+	},
+	"version": "0.1.4"
+}
