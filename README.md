@@ -1,4 +1,4 @@
-# db-utils
+# drizzle-utils
 
 To install dependencies:
 
@@ -12,4 +12,4 @@ To run:
 bun run
 ```
 
-This project was created using `bun init` in bun v1.2.19. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+To visualize a drizzle schema using the dbml format run `bunx @absolutejs/drizzle-utils <schema.ts>`
