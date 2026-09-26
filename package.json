@@ -17,13 +17,20 @@
 		"typescript-eslint": "8.39.0"
 	},
 	"files": [
-		"dist/**"
+		"dist/**",
+		"LICENSE",
+		"README.md"
 	],
+	"license": "MIT",
 	"name": "@absolutejs/drizzle-utils",
 	"peerDependencies": {
 		"typescript": "5.9.2"
 	},
 	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alexkahndev/drizzle-utils.git"
+	},
 	"scripts": {
 		"build": "rm -rf dist && bun build src/drizzleToDBML.ts --outdir dist --sourcemap --target=bun && tsc --emitDeclarationOnly --project tsconfig.build.json",
 		"dev": "bun drizzle-dbml example/schema.ts -o example/example.dbml",
@@ -32,5 +39,5 @@
 		"lint": "eslint ./",
 		"release": "bun run lint --fix && bun run format && bun run build && bun publish"
 	},
-	"version": "0.1.4"
+	"version": "0.1.5"
 }
